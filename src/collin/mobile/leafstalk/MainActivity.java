@@ -32,26 +32,49 @@ public class MainActivity extends ActionBarActivity  {
 		//IMPLEMENT KABEL FONT
 		TextView pI =(TextView)findViewById(R.id.playoffIntro);
 		TextView pA =(TextView)findViewById(R.id.playoffAns);
+		TextView oA =(TextView)findViewById(R.id.overall);
+		TextView oAAns =(TextView)findViewById(R.id.overallAns);
 		
 	    Typeface kabe=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Regular.ttf");
 	    Typeface kabeBold=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Bold.ttf");
 	    GetInfo gI = new GetInfo();
 	    gI.execute();
 	    
+	    //Playoff Spot Answer
 	    pA.setTypeface(kabeBold);
 	    pA.setTextSize(40f);
+	    
+	    try {
+	        Thread.sleep(1000);         
+	    } catch (InterruptedException e) {
+	       e.printStackTrace();
+	    }
+	    
 	    if(gI.getRank() <= 8){
-	    	
 	    	pA.setText("Yes");
 	    }else{
 	    	pA.setText("No");
 	    }
 	    
+	    //Playoff Spot Question
 	    pI.setTypeface(kabe);
 	    pI.setTextSize(24f);
 	    
+	    //Overall stats
+	    oA.setTypeface(kabe);
+	    oA.setTextSize(24f);
+	    oA.setText("Wins/Losses/OT-Losses: ");
 	    
+	    //Overall stats enter
+	    oAAns.setTypeface(kabeBold);
+	    oAAns.setTextSize(24f);
+	    oAAns.setText(gI.getOverallStats());
 	    
+	    //conference rank
+	    //division rank
+	    //how good is kessel
+	    //last 10
+	    // points, wins,  losses
 	    
 	    
 	}

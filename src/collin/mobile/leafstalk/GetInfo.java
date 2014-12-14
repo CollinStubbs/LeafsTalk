@@ -20,11 +20,11 @@ import android.util.Log;
 public class GetInfo extends AsyncTask<Void, Void, Void> {
 	private Document doc;
 	private int rank;
+	private int checker = 0;
+	
+	private String wins, losses, otl;
 
-	public int getRank(){
-		
-		return rank;
-	}
+
 	@Override
 	protected Void doInBackground(Void... params) {
 		// TODO Auto-generated method stub
@@ -62,6 +62,17 @@ public class GetInfo extends AsyncTask<Void, Void, Void> {
 	    			
 	    			if(eElement.getAttribute("TriCode").equals("TOR")){
 	    				rank = Integer.parseInt(eElement.getAttribute("ConfRank"));
+	    				
+	    				
+	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
+	    				
+	    				wins = stats1.getAttribute("Stat1");
+	    				
+	    				losses = stats1.getAttribute("Stat2");
+	    				otl = stats1.getAttribute("Stat3");
+	    				
+	    				
+	    				checker = 1;
 	    			}
 	    		}
 	    			
@@ -73,5 +84,15 @@ public class GetInfo extends AsyncTask<Void, Void, Void> {
 	           Log.e("log_tag", "Error in http connection "+e.toString());
 	       }
 		return null;
+	}
+	public int getRank(){
+		
+		
+		return rank;
+	}
+	
+	public String getOverallStats(){
+		
+		return wins+"/"+losses+"/"+otl;
 	}
 }

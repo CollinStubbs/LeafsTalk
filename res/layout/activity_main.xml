@@ -25,7 +25,8 @@
         android:layout_height="200dp"
         
         android:background="@drawable/leaf"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" 
+        android:layout_marginBottom="20dp">
         
         <TextView
 	        android:id="@+id/playoffAns"
@@ -36,5 +37,39 @@
 	        android:textColor="@color/leafsBlue" />
         
     </LinearLayout>
-
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/leafsWhite"
+	    />
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="4dp"
+	    android:background="@color/leafsBlue"
+	    />
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/leafsWhite"
+	    />
+	<LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal">
+	     <TextView
+	        android:id="@+id/overall"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="20dp"
+	        android:gravity="center_horizontal"
+	        android:textColor="@color/leafsWhite" />
+	     <TextView
+	        android:id="@+id/overallAns"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="20dp"
+	        android:gravity="center_horizontal"
+	        android:textColor="@color/leafsWhite" />
+	</LinearLayout>"
 </LinearLayout>
