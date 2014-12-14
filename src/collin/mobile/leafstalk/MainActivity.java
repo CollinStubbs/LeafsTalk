@@ -42,6 +42,9 @@ public class MainActivity extends ActionBarActivity  {
 	    GetInfo gI = new GetInfo();
 	    gI.execute();
 	    
+	    GetPlayerInfo gPI = new GetPlayerInfo();
+	    gPI.execute();
+	    
 	    //Playoff Spot Answer
 	    pA.setTypeface(kabeBold);
 	    pA.setTextSize(40f);
@@ -86,6 +89,8 @@ public class MainActivity extends ActionBarActivity  {
 	    //conference rank
 	    //division rank
 	    //how good is kessel
+	    //http://mapleleafs.nhl.com/rss/news.xml for news maybe
+	    //top 3 players
 	    
 	    
 	    
