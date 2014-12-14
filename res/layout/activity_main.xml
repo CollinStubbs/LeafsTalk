@@ -71,5 +71,25 @@
 	        android:layout_marginTop="20dp"
 	        android:gravity="center_horizontal"
 	        android:textColor="@color/leafsWhite" />
+	</LinearLayout>
+	<LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal">
+	     <TextView
+	        android:id="@+id/lastten"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="20dp"
+	        android:gravity="center_horizontal"
+	        android:textColor="@color/leafsWhite" />
+	     <TextView
+	        android:id="@+id/lasttenans"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="20dp"
+	        android:gravity="center_horizontal"
+	        android:textColor="@color/leafsWhite" />
 	</LinearLayout>"
 </LinearLayout>

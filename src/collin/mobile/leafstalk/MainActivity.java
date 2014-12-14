@@ -34,6 +34,8 @@ public class MainActivity extends ActionBarActivity  {
 		TextView pA =(TextView)findViewById(R.id.playoffAns);
 		TextView oA =(TextView)findViewById(R.id.overall);
 		TextView oAAns =(TextView)findViewById(R.id.overallAns);
+		TextView lT =(TextView)findViewById(R.id.lastten);
+		TextView lTAns =(TextView)findViewById(R.id.lasttenans);
 		
 	    Typeface kabe=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Regular.ttf");
 	    Typeface kabeBold=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Bold.ttf");
@@ -70,11 +72,21 @@ public class MainActivity extends ActionBarActivity  {
 	    oAAns.setTextSize(24f);
 	    oAAns.setText(gI.getOverallStats());
 	    
+
+	    //Overall stats
+	    lT.setTypeface(kabe);
+	    lT.setTextSize(24f);
+	    lT.setText("Last Ten:");
+	    
+	    //Overall stats enter
+	    lTAns.setTypeface(kabeBold);
+	    lTAns.setTextSize(24f);
+	    lTAns.setText(gI.getLastTen());
+	    
 	    //conference rank
 	    //division rank
 	    //how good is kessel
-	    //last 10
-	    // points, wins,  losses
+	    
 	    
 	    
 	}

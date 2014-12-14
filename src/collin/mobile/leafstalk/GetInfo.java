@@ -22,7 +22,7 @@ public class GetInfo extends AsyncTask<Void, Void, Void> {
 	private int rank;
 	private int checker = 0;
 	
-	private String wins, losses, otl;
+	private String wins, losses, otl, lastTen;
 
 
 	@Override
@@ -65,11 +65,13 @@ public class GetInfo extends AsyncTask<Void, Void, Void> {
 	    				
 	    				
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
+	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
-	    				wins = stats1.getAttribute("Stat1");
-	    				
+	    				wins = stats1.getAttribute("Stat1");	    				
 	    				losses = stats1.getAttribute("Stat2");
 	    				otl = stats1.getAttribute("Stat3");
+	    				
+	    				lastTen = stats2.getAttribute("Stat2");
 	    				
 	    				
 	    				checker = 1;
@@ -94,5 +96,9 @@ public class GetInfo extends AsyncTask<Void, Void, Void> {
 	public String getOverallStats(){
 		
 		return wins+"/"+losses+"/"+otl;
+	}
+	
+	public String getLastTen(){
+		return lastTen;
 	}
 }
