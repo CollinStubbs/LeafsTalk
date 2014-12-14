@@ -19,6 +19,7 @@ import android.os.AsyncTask;
 public class GetPlayerInfo extends AsyncTask<Void, Void, Void>{
 
 	private ArrayList<String> arr = new ArrayList<String>();
+	private int checker = 0;
 	
 	@Override
 	protected Void doInBackground(Void... params) {
@@ -73,7 +74,25 @@ public class GetPlayerInfo extends AsyncTask<Void, Void, Void>{
 		return null;
 	}
 
-	private void fillArray(String one, String two, String thr){
-		// TAKE DATA, SPLIT BY COMMAS, ADD TO ARRAY, MAKE GET ARRAY METHOD
+	private void fillArray(String one, String two, String three){
+		String oneParts[] = one.split(", ");
+		String twoParts[] = two.split(", ");
+		String threeParts[] = three.split(", ");
+		arr.add("1.  "+oneParts[2]+": "+oneParts[4]+"-"+oneParts[5]+"-"+oneParts[6]);
+		arr.add("2.  "+twoParts[2]+": "+twoParts[4]+"-"+twoParts[5]+"-"+twoParts[6]);
+		arr.add("3.  "+threeParts[2]+": "+threeParts[4]+"-"+threeParts[5]+"-"+threeParts[6]);
+		checker = 1;
+	}
+	public String getOne(){
+		return arr.get(0);
+	}
+	public String getTwo(){
+		return arr.get(1);
+	}
+	public String getThree(){
+		return arr.get(2);
+	}
+	public int getCheck(){
+		return checker;
 	}
 }

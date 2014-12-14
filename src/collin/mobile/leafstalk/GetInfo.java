@@ -1,6 +1,6 @@
 package collin.mobile.leafstalk;
 
-import java.io.BufferedReader;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -46,10 +46,10 @@ public class GetInfo extends AsyncTask<Void, Void, Void> {
 	    	doc = builder.parse(resp.getEntity().getContent());
 	    	doc.getDocumentElement().normalize();
 	    	resp.getEntity().consumeContent();
-	          
+	       
 	    	NodeList nList = doc.getElementsByTagName("Standing");
 	    	 
-	    	
+	    
 	     
 	    	for (int temp = 0; temp < nList.getLength(); temp++) {
 	     

@@ -37,8 +37,14 @@ public class MainActivity extends ActionBarActivity  {
 		TextView lT =(TextView)findViewById(R.id.lastten);
 		TextView lTAns =(TextView)findViewById(R.id.lasttenans);
 		
+		TextView topPlay =(TextView)findViewById(R.id.topPlayers);
+		TextView topOne =(TextView)findViewById(R.id.topOne);
+		TextView topTwo =(TextView)findViewById(R.id.topTwo);
+		TextView topThree =(TextView)findViewById(R.id.topThree);
+		
 	    Typeface kabe=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Regular.ttf");
 	    Typeface kabeBold=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Bold.ttf");
+	    
 	    GetInfo gI = new GetInfo();
 	    gI.execute();
 	    
@@ -50,7 +56,9 @@ public class MainActivity extends ActionBarActivity  {
 	    pA.setTextSize(40f);
 	    
 	    try {
-	        Thread.sleep(1000);         
+	    	while(gI.getRank() == 0 || gPI.getCheck() == 0){
+	    		Thread.sleep(100);         
+	    	}
 	    } catch (InterruptedException e) {
 	       e.printStackTrace();
 	    }
@@ -85,6 +93,26 @@ public class MainActivity extends ActionBarActivity  {
 	    lTAns.setTypeface(kabeBold);
 	    lTAns.setTextSize(24f);
 	    lTAns.setText(gI.getLastTen());
+	    
+	    //Top players text
+	    topPlay.setTypeface(kabe);
+	    topPlay.setTextSize(24f);
+	    topPlay.setText("Top Three (G-A-Total):");
+	    
+	    //Top Player One
+	    topOne.setTypeface(kabeBold);
+	    topOne.setTextSize(14f);
+	    topOne.setText(gPI.getOne());
+	    
+	    //Top Player Two
+	    topTwo.setTypeface(kabeBold);
+	    topTwo.setTextSize(14f);
+	    topTwo.setText(gPI.getTwo());
+	    
+	    //Top Player Three
+	    topThree.setTypeface(kabeBold);
+	    topThree.setTextSize(14f);
+	    topThree.setText(gPI.getThree());
 	    
 	    //conference rank
 	    //division rank
