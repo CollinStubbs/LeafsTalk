@@ -2,6 +2,7 @@
      xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    tools:context="collin.mobile.leafstalk.MainActivity"
     >
 <LinearLayout 
     android:id="@+id/mainLay"
@@ -14,7 +15,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="collin.mobile.leafstalk.MainActivity" >
+     >
 
     <TextView
         android:id="@+id/playoffIntro"
@@ -25,6 +26,7 @@
         android:text="Are we in a playoff spot?" />
 
     <LinearLayout
+        android:id="@+id/leafsPic"
         android:layout_width="200dp"
         android:layout_height="200dp"
         
@@ -42,16 +44,19 @@
         
     </LinearLayout>
 	<View
+	    android:id="@+id/v1"
 	    android:layout_width="match_parent"
 	    android:layout_height="1dp"
 	    android:background="@color/leafsWhite"
 	    />
 	<View
+	    android:id="@+id/v2"
 	    android:layout_width="match_parent"
 	    android:layout_height="4dp"
 	    android:background="@color/leafsBlue"
 	    />
 	<View
+	    android:id="@+id/v3"
 	    android:layout_width="match_parent"
 	    android:layout_height="1dp"
 	    android:background="@color/leafsWhite"
@@ -97,17 +102,20 @@
 	        android:textColor="@color/leafsWhite" />
 	</LinearLayout>
 	<View
+	    android:id="@+id/v4"
 	    android:layout_width="match_parent"
 	    android:layout_height="1dp"
 	    android:layout_marginTop="20dp"
 	    android:background="@color/leafsWhite"
 	    />
 	<View
+	    android:id="@+id/v5"
 	    android:layout_width="match_parent"
 	    android:layout_height="4dp"
 	    android:background="@color/leafsBlue"
 	    />
 	<View
+	    android:id="@+id/v6"
 	    android:layout_width="match_parent"
 	    android:layout_height="1dp"
 	    android:background="@color/leafsWhite"

@@ -15,32 +15,52 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.w3c.dom.Document;
 
 import android.support.v7.app.ActionBarActivity;
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity  {
+	LinearLayout ll, pic;
+	View v1,v2,v3,v4,v5,v6;
+	
+	TextView pI, pA, oA, oAAns, lT,  lTAns, topPlay, topOne, topTwo, topThree;
+	
+	boolean toggle = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		//IMPLEMENT KABEL FONT
-		TextView pI =(TextView)findViewById(R.id.playoffIntro);
-		TextView pA =(TextView)findViewById(R.id.playoffAns);
-		TextView oA =(TextView)findViewById(R.id.overall);
-		TextView oAAns =(TextView)findViewById(R.id.overallAns);
-		TextView lT =(TextView)findViewById(R.id.lastten);
-		TextView lTAns =(TextView)findViewById(R.id.lasttenans);
+		 ll =(LinearLayout)findViewById(R.id.mainLay);
+		 pic =(LinearLayout)findViewById(R.id.leafsPic);
+		v1=(View)findViewById(R.id.v1);
+		v2=(View)findViewById(R.id.v2);
+		v3=(View)findViewById(R.id.v3);
+		v4=(View)findViewById(R.id.v4);
+		v5=(View)findViewById(R.id.v5);
+		v6=(View)findViewById(R.id.v6);
 		
-		TextView topPlay =(TextView)findViewById(R.id.topPlayers);
-		TextView topOne =(TextView)findViewById(R.id.topOne);
-		TextView topTwo =(TextView)findViewById(R.id.topTwo);
-		TextView topThree =(TextView)findViewById(R.id.topThree);
+		 pI =(TextView)findViewById(R.id.playoffIntro);
+		 pA =(TextView)findViewById(R.id.playoffAns);
+		 oA =(TextView)findViewById(R.id.overall);
+		 oAAns =(TextView)findViewById(R.id.overallAns);
+		 lT =(TextView)findViewById(R.id.lastten);
+		 lTAns =(TextView)findViewById(R.id.lasttenans);
+		
+		 topPlay =(TextView)findViewById(R.id.topPlayers);
+		 topOne =(TextView)findViewById(R.id.topOne);
+		 topTwo =(TextView)findViewById(R.id.topTwo);
+		 topThree =(TextView)findViewById(R.id.topThree);
+		
+		
+		//IMPLEMENT KABEL FONT
 		
 	    Typeface kabe=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Regular.ttf");
 	    Typeface kabeBold=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Bold.ttf");
@@ -133,6 +153,7 @@ public class MainActivity extends ActionBarActivity  {
 		return true;
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -140,6 +161,54 @@ public class MainActivity extends ActionBarActivity  {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			
+			if(toggle){
+			ll.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+			pic.setBackground(getResources().getDrawable(R.drawable.leafblue));
+			v1.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+			v2.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+			v3.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+			v4.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+			v5.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+			v6.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+			
+			pI.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 pA.setTextColor(getResources().getColor(R.color.leafsWhite));
+			 oA.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 oAAns.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 lT.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 lTAns.setTextColor(getResources().getColor(R.color.leafsBlue));
+			
+			 topPlay.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 topOne.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 topTwo.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 topThree.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 
+			 toggle = false;
+			}else{
+				ll.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+				pic.setBackground(getResources().getDrawable(R.drawable.leaf));
+				v1.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+				v2.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+				v3.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+				v4.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+				v5.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+				v6.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+				
+				pI.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 pA.setTextColor(getResources().getColor(R.color.leafsBlue));
+				 oA.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 oAAns.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 lT.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 lTAns.setTextColor(getResources().getColor(R.color.leafsWhite));
+				
+				 topPlay.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 topOne.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 topTwo.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 topThree.setTextColor(getResources().getColor(R.color.leafsWhite));
+				
+				 toggle = true;
+			}
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
