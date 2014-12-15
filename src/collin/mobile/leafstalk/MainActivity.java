@@ -158,6 +158,7 @@ public class MainActivity extends ActionBarActivity  {
 	       e.printStackTrace();
 	    }
 	    
+	    //if we're in a playoff spot or not
 	    if(gI.getRank() <= 8){
 	    	pA.setText("Yes");
 	    }else{
@@ -231,6 +232,8 @@ public class MainActivity extends ActionBarActivity  {
 		return true;
 	}
 
+	
+	//Overflow menu has 2 options, to toggle the theme and to open a comparison activity
 	@SuppressLint("NewApi")
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -304,6 +307,8 @@ public class MainActivity extends ActionBarActivity  {
 				 toggle = true;
 			}
 			return true;
+			
+			//to open the comparison activity
 		}else if(id == R.id.comparisons){
 			Intent intent = new Intent(this, Comparisons.class);
 			startActivity(intent);
