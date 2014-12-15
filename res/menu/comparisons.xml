@@ -4,9 +4,45 @@
     tools:context="collin.mobile.leafstalk.Comparisons" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/boston"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Boston"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/buffalo"
+        android:orderInCategory="100"
+        android:title="Buffalo"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/detroit"
+        android:orderInCategory="100"
+        android:title="Detroit"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/florida"
+        android:orderInCategory="100"
+        android:title="Florida"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/montreal"
+        android:orderInCategory="100"
+        android:title="Montreal"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/ottawa"
+        android:orderInCategory="100"
+        android:title="Ottawa"
+        app:showAsAction="never"/>
+    
+    <item
+        android:id="@+id/tampa"
+        android:orderInCategory="100"
+        android:title="Tampa Bay"
+        app:showAsAction="never"/>
+    
 
 </menu>

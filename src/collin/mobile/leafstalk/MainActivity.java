@@ -280,6 +280,7 @@ public class MainActivity extends ActionBarActivity  {
 			return true;
 		}else if(id == R.id.comparisons){
 			Intent intent = new Intent(this, Comparisons.class);
+			startActivity(intent);
 		}
 		return super.onOptionsItemSelected(item);
 	}
