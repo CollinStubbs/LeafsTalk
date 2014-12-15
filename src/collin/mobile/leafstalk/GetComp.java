@@ -17,6 +17,13 @@ import org.w3c.dom.NodeList;
 import android.os.AsyncTask;
 import android.util.Log;
 
+/*
+ * @name: GetComp
+ * @author: Collin Stubbs - 100454604
+ * @desc: This class sends a get request for an xml page,
+ * parses the xml, and stores the data
+ * 
+ * */
 public class GetComp extends AsyncTask<Void, Void, Void> {
 	private Document doc;
 	private int checker = 0;
@@ -26,6 +33,8 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	@Override
 	protected Void doInBackground(Void... params) {
 		// TODO Auto-generated method stub
+		
+		//declaring arraylists for each team
 		tor = new ArrayList<String>();
 		bos= new ArrayList<String>();
 		buf= new ArrayList<String>();
@@ -36,30 +45,33 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 		tam= new ArrayList<String>();
 		
 		try{
+			//http request code
 	    	HttpGet uri = new HttpGet("http://app.cgy.nhl.yinzcam.com/V2/Stats/Standings");    
 
 	    	DefaultHttpClient client = new DefaultHttpClient();
 	    	HttpResponse resp = client.execute(uri);
 
 	    	StatusLine status = resp.getStatusLine();
+	    	
+	    	//check if request was successful
 	    	if (status.getStatusCode() != 200) {
 	    	    Log.d("Hello", "HTTP error, invalid server status code: " + resp.getStatusLine());  
 	    	}
 
+	    	//for parsing the xml
 	    	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	    	DocumentBuilder builder = factory.newDocumentBuilder();
 	    	doc = builder.parse(resp.getEntity().getContent());
 	    	doc.getDocumentElement().normalize();
 	    	resp.getEntity().consumeContent();
 	       
+	    	//nodelist of all the teams
 	    	NodeList nList = doc.getElementsByTagName("Standing");
 	    	 
-	    
-	     
+	    	//for all the teams, check if the current is the one we want and add data to arraylist if it is
 	    	for (int temp = 0; temp < nList.getLength(); temp++) {
 	     
 	    		Node nNode = nList.item(temp);
-	     
 	     
 	    		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 	     
@@ -212,9 +224,11 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	       }
 		return null;
 	}
+	//for checking if task is complete
 	public int getCheck(){
 		return checker;
 	}
+	//returns the arraylist for the team name given in the parameters
 	public ArrayList<String> getStats(String name){
 		if(name.equals(tor.get(0))){
 			return tor;
