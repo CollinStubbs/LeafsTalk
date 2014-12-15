@@ -151,7 +151,7 @@ public class MainActivity extends ActionBarActivity  {
 	    newsThree.setTextSize(14f);
 	    
 	    try {
-	    	while(gI.getRank() == 0 || gPI.getCheck() == 0 || gN.getCheck() == 0){
+	    	while(gI.getCheck() == 0 || gPI.getCheck() == 0 || gN.getCheck() == 0){
 	    		Thread.sleep(30);         
 	    	}
 	    } catch (InterruptedException e) {
