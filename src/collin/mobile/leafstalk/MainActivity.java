@@ -254,9 +254,9 @@ public class MainActivity extends ActionBarActivity  {
 				v4.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
 				v5.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
 				v6.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
-				v7.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
-				v8.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
-				v9.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+				v7.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+				v8.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+				v9.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
 				
 				pI.setTextColor(getResources().getColor(R.color.leafsWhite));
 				 pA.setTextColor(getResources().getColor(R.color.leafsBlue));
