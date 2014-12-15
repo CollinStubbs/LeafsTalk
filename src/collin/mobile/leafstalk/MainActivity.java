@@ -27,15 +27,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+/*
+ * @APPNAME: LeafsTalk
+ * @Author: Collin Stubbs - 100454604
+ * @Desc: LeafsTalk is a minimalistic app that tells you all you
+ * need to know about the leafs to create small talk.
+ * */
 public class MainActivity extends ActionBarActivity  {
+	//declaring the views
 	LinearLayout ll, pic;
 	View v1,v2,v3,v4,v5,v6, v7, v8, v9;
-	
 	TextView pI, pA, oA, oAAns, lT,  lTAns, topPlay, topOne, topTwo, topThree, news;
-	
 	Button newsOne,newsTwo,newsThree;
-	
+	//use this to toggle the theme
 	boolean toggle = true;
 
 	@Override
@@ -43,8 +47,10 @@ public class MainActivity extends ActionBarActivity  {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		//instantiating the views
 		 ll =(LinearLayout)findViewById(R.id.mainLay);
 		 pic =(LinearLayout)findViewById(R.id.leafsPic);
+		 
 		v1=(View)findViewById(R.id.v1);
 		v2=(View)findViewById(R.id.v2);
 		v3=(View)findViewById(R.id.v3);
@@ -73,16 +79,18 @@ public class MainActivity extends ActionBarActivity  {
 		 newsThree =(Button)findViewById(R.id.newsThree);
 		 
 		//IMPLEMENT KABEL FONT
-		
 	    Typeface kabe=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Regular.ttf");
 	    Typeface kabeBold=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Bold.ttf");
 	    
+	    //Instantiate and execute the GetInfo class
 	    GetInfo gI = new GetInfo();
 	    gI.execute();
 	    
+	    //Instantiate and execute the GetPlayerInfo class
 	    GetPlayerInfo gPI = new GetPlayerInfo();
 	    gPI.execute();
 	    
+	    //Instantiate and execute the GetNews class
 	    final GetNews gN = new GetNews();
 	    gN.execute();
 	    
@@ -90,9 +98,61 @@ public class MainActivity extends ActionBarActivity  {
 	    pA.setTypeface(kabeBold);
 	    pA.setTextSize(40f);
 	    
+	    //Playoff Spot Question
+	    pI.setTypeface(kabe);
+	    pI.setTextSize(24f);
+	    
+	    //Overall stats
+	    oA.setTypeface(kabe);
+	    oA.setTextSize(24f);
+	    
+	    //Overall stats enter
+	    oAAns.setTypeface(kabeBold);
+	    oAAns.setTextSize(24f);
+	    
+	    //last ten
+	    lT.setTypeface(kabe);
+	    lT.setTextSize(24f);
+	    
+	    //Overall stats enter
+	    lTAns.setTypeface(kabeBold);
+	    lTAns.setTextSize(24f);
+	    
+	    //Top players text
+	    topPlay.setTypeface(kabe);
+	    topPlay.setTextSize(24f);
+	    
+	    //Top Player One
+	    topOne.setTypeface(kabeBold);
+	    topOne.setTextSize(14f);
+	    
+	    //Top Player Two
+	    topTwo.setTypeface(kabeBold);
+	    topTwo.setTextSize(14f);
+	    
+	     //Top Player Three
+	    topThree.setTypeface(kabeBold);
+	    topThree.setTextSize(14f);
+	    
+	    //news text
+	    news.setTypeface(kabe);
+	    news.setTextSize(24f);
+	    
+	    //NewsButtonOne
+	    newsOne.setTypeface(kabeBold);
+	    newsOne.setTextSize(14f);
+	    
+	    //NewsButtonTwo
+	    newsTwo.setTypeface(kabeBold);
+	    newsTwo.setTextSize(14f);
+	    
+	    //NewsButtonOne
+	    newsThree.setTypeface(kabeBold);
+	    newsThree.setTextSize(14f);
+	    
 	    try {
 	    	while(gI.getRank() == 0 || gPI.getCheck() == 0 || gN.getCheck() == 0){
-	    		Thread.sleep(100);         
+	    		Thread.sleep(30);         
 	    	}
 	    } catch (InterruptedException e) {
 	       e.printStackTrace();
@@ -104,59 +164,36 @@ public class MainActivity extends ActionBarActivity  {
 	    	pA.setText("No");
 	    }
 	    
-	    //Playoff Spot Question
-	    pI.setTypeface(kabe);
-	    pI.setTextSize(24f);
-	    
-	    //Overall stats
-	    oA.setTypeface(kabe);
-	    oA.setTextSize(24f);
+
+	    //setting overall stats text
 	    oA.setText("Wins/Losses/OT-Losses: ");
 	    
-	    //Overall stats enter
-	    oAAns.setTypeface(kabeBold);
-	    oAAns.setTextSize(24f);
+	    //setting the overallstats quantity
 	    oAAns.setText(gI.getOverallStats());
 	    
 
-	    //Overall stats
-	    lT.setTypeface(kabe);
-	    lT.setTextSize(24f);
+	    //setting last ten text
 	    lT.setText("Last Ten:");
 	    
-	    //Overall stats enter
-	    lTAns.setTypeface(kabeBold);
-	    lTAns.setTextSize(24f);
+	    //setting last ten quantity
 	    lTAns.setText(gI.getLastTen());
 	    
-	    //Top players text
-	    topPlay.setTypeface(kabe);
-	    topPlay.setTextSize(24f);
+	    //setting top players text
 	    topPlay.setText("Top Three (G-A-Total):");
 	    
-	    //Top Player One
-	    topOne.setTypeface(kabeBold);
-	    topOne.setTextSize(14f);
+	    //setting the first player
 	    topOne.setText(gPI.getOne());
 	    
-	    //Top Player Two
-	    topTwo.setTypeface(kabeBold);
-	    topTwo.setTextSize(14f);
+	    //setting the second player
 	    topTwo.setText(gPI.getTwo());
 	    
-	    //Top Player Three
-	    topThree.setTypeface(kabeBold);
-	    topThree.setTextSize(14f);
+	    //setting the third player
 	    topThree.setText(gPI.getThree());
 	    
-	    //news text
-	    news.setTypeface(kabe);
-	    news.setTextSize(24f);
+	    //setting news text
 	    news.setText("News:");
 	    
-	    //NewsButtonOne
-	    newsOne.setTypeface(kabeBold);
-	    newsOne.setTextSize(14f);
+	    //setting text and link for first news item
 	    newsOne.setText(gN.getOneTitle());
 	    newsOne.setOnClickListener(new Button.OnClickListener() {
 	        public void onClick(View v) {
@@ -165,9 +202,7 @@ public class MainActivity extends ActionBarActivity  {
 		    }
 		});
 		    
-	  //NewsButtonTwo
-	    newsTwo.setTypeface(kabeBold);
-	    newsTwo.setTextSize(14f);
+	    //setting text and link for 2nd news item
 	    newsTwo.setText(gN.getTwoTitle());
 	    newsTwo.setOnClickListener(new Button.OnClickListener() {
 	        public void onClick(View v) {
@@ -176,9 +211,7 @@ public class MainActivity extends ActionBarActivity  {
 		    }
 		});
 	    
-	  //NewsButtonOne
-	    newsThree.setTypeface(kabeBold);
-	    newsThree.setTextSize(14f);
+	    //setting text and link for 3rd news item
 	    newsThree.setText(gN.getThreeTitle());
 	    newsThree.setOnClickListener(new Button.OnClickListener() {
 	        public void onClick(View v) {
@@ -186,13 +219,6 @@ public class MainActivity extends ActionBarActivity  {
 	        	startActivity(browserIntent);
 		    }
 		});
-	    //conference rank
-	    //division rank
-	    //how good is kessel
-	    //http://mapleleafs.nhl.com/rss/news.xml for news maybe
-	    //top 3 players
-	    
-	    
 	    
 	}
 	
