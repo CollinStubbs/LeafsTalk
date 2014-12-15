@@ -13,13 +13,14 @@
     tools:context="collin.mobile.leafstalk.Comparisons">
 	
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="2dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_horizontal">
         <TextView
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="30dp"
             android:gravity="center_horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -101,7 +102,7 @@
             android:textColor="@color/leafsWhite"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="9dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -119,6 +120,28 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/oppOTL"
+            android:layout_weight="1"
+            android:textColor="@color/leafsWhite"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="9dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_marginRight="40dp"
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/leafsPTS"
+            android:layout_weight="1"
+            android:textColor="@color/leafsWhite"/>
+         <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/oppPTS"
             android:layout_weight="1"
             android:textColor="@color/leafsWhite"/>
     </LinearLayout>

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class Comparisons extends ActionBarActivity {
 
-	TextView leafTitle, oppTitle, leafGP, oppGP, leafW, oppW, leafL, oppL,leafOTL, oppOTL, leafGF, oppGF, leafGA, oppGA, leafSTK, oppSTK; 
+	TextView leafTitle, oppTitle, leafGP, oppGP, leafW, oppW, leafL, oppL,leafOTL, oppOTL,leafPTS,oppPTS, leafGF, oppGF, leafGA, oppGA, leafSTK, oppSTK; 
 	GetComp gI;
 	ArrayList<String> opp;
 	@Override
@@ -51,6 +51,9 @@ public class Comparisons extends ActionBarActivity {
 		 
 		 leafOTL =(TextView)findViewById(R.id.leafsOTL);
 		 oppOTL =(TextView)findViewById(R.id.oppOTL);
+		 
+		 leafPTS =(TextView)findViewById(R.id.leafsPTS);
+		 oppPTS =(TextView)findViewById(R.id.oppPTS);
 		 
 		 leafGF =(TextView)findViewById(R.id.leafsGF);
 		 oppGF =(TextView)findViewById(R.id.oppGF);
@@ -97,23 +100,30 @@ public class Comparisons extends ActionBarActivity {
 		 oppOTL.setTypeface(kabeBold);
 		 oppOTL.setTextSize(24f);
 		 
+		 leafPTS.setTypeface(kabeBold);
+		 leafPTS.setTextSize(24f);
+		 leafPTS.setText(tor.get(5));
+		 
+		 oppPTS.setTypeface(kabeBold);
+		 oppPTS.setTextSize(24f);
+		 
 		 leafGF.setTypeface(kabeBold);
 		 leafGF.setTextSize(24f);
-		 leafGF.setText(tor.get(5));
+		 leafGF.setText(tor.get(6));
 		 
 		 oppGF.setTypeface(kabeBold);
 		 oppGF.setTextSize(24f);
 		 
 		 leafGA.setTypeface(kabeBold);
 		 leafGA.setTextSize(24f);
-		 leafGA.setText(tor.get(6));
+		 leafGA.setText(tor.get(7));
 		 
 		 oppGA.setTypeface(kabeBold);
 		 oppGA.setTextSize(24f);
 		 
 		 leafSTK.setTypeface(kabeBold);
 		 leafSTK.setTextSize(24f);
-		 leafSTK.setText(tor.get(7));
+		 leafSTK.setText(tor.get(8));
 		 
 		 oppSTK.setTypeface(kabeBold);
 		 oppSTK.setTextSize(24f);
@@ -179,8 +189,9 @@ public class Comparisons extends ActionBarActivity {
 		oppW.setText(opp.get(2));
 		oppL.setText(opp.get(3));
 		oppOTL.setText(opp.get(4));
-		oppGF.setText(opp.get(5));
-		oppGA.setText(opp.get(6));
-		oppSTK.setText(opp.get(7));
+		oppPTS.setText(opp.get(5));
+		oppGF.setText(opp.get(6));
+		oppGA.setText(opp.get(7));
+		oppSTK.setText(opp.get(8));
 	}
 }
