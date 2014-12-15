@@ -9,34 +9,46 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+/*
+ * @name: Comparisons
+ * @author: Collin Stubbs - 100454604
+ * @desc: This activity shows a comparison of statistics between
+ * Toronto and whichever team is selected
+ * 
+ * */
 public class Comparisons extends ActionBarActivity {
-
+	//declaration of views for layout
 	TextView leafTitle, oppTitle, leafGP, oppGP, leafW, oppW, leafL, oppL,leafOTL, oppOTL,leafPTS,oppPTS, leafGF, oppGF, leafGA, oppGA, leafSTK, oppSTK; 
-	GetComp gI;
-	ArrayList<String> opp;
+	
+	GetComp gI; //need to use globally
+	ArrayList<String> opp;//globally as well
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_comparisons);
-		
+		//instantiate and execute the GetComp class
 		gI = new GetComp();
 		gI.execute();
 		
-		
-		  try {
-		    	while(gI.getCheck() == 0){
-		    		Thread.sleep(100);         
-		    	}
-		    } catch (InterruptedException e) {
-		       e.printStackTrace();
-		    }
+		//while task is not done, sleep a bit
+		try {
+	    	while(gI.getCheck() == 0){
+	    		Thread.sleep(30);         
+	    	}
+	    } catch (InterruptedException e) {
+	       e.printStackTrace();
+	    }
 		  
-		  ArrayList<String> tor = gI.getStats("Toronto");
-		  opp = gI.getStats("Ottawa");
-		  
+		//set the arraylists for tor and opposition
+		 ArrayList<String> tor = gI.getStats("Toronto");
+		 opp = gI.getStats("Ottawa");
+		 
+		 //set custom typefaces
 		 Typeface kabe=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Regular.ttf");
 		 Typeface kabeBold=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Bold.ttf");
 		
+		 //instantiate the views
 		 leafTitle =(TextView)findViewById(R.id.leafsTitle);
 		 oppTitle =(TextView)findViewById(R.id.oppTitle);
 		 
@@ -64,13 +76,14 @@ public class Comparisons extends ActionBarActivity {
 		 leafSTK =(TextView)findViewById(R.id.leafsSTK);
 		 oppSTK =(TextView)findViewById(R.id.oppSTK);
 		 
+		 //customize the views and add data for toronto ones
+		 
 		 leafTitle.setTypeface(kabeBold);
 		 leafTitle.setTextSize(24f);
 		 leafTitle.setText(tor.get(0));
 		 
 		 oppTitle.setTypeface(kabeBold);
 		 oppTitle.setTextSize(24f);
-		 
 		 
 		 leafGP.setTypeface(kabeBold);
 		 leafGP.setTextSize(24f);
@@ -128,9 +141,7 @@ public class Comparisons extends ActionBarActivity {
 		 oppSTK.setTypeface(kabeBold);
 		 oppSTK.setTextSize(24f);
 		 
-		 setOpposition();
-		 
-		
+		 setOpposition();//sets the data for the opposition		
 	}
 
 	@Override
@@ -146,6 +157,7 @@ public class Comparisons extends ActionBarActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+		//for whatever team is selected, set the data to correspond
 		if (id == R.id.boston) {
 			opp = gI.getStats("Boston");
 			setOpposition();
@@ -183,6 +195,7 @@ public class Comparisons extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	//sets the views to show the selected teams data
 	public void setOpposition(){
 		oppTitle.setText(opp.get(0));
 		oppGP.setText(opp.get(1));
