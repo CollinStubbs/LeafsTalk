@@ -156,6 +156,65 @@
 	        android:layout_marginLeft="10dp"
 	        android:gravity="left"
 	        android:textColor="@color/leafsWhite" />
+	</LinearLayout>
+	<View
+	    android:id="@+id/v7"
+	    android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:layout_marginTop="20dp"
+	    android:background="@color/leafsWhite"
+	    />
+	<View
+	    android:id="@+id/v8"
+	    android:layout_width="match_parent"
+	    android:layout_height="4dp"
+	    android:background="@color/leafsBlue"
+	    />
+	<View
+	    android:id="@+id/v9"
+	    android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:background="@color/leafsWhite"
+	    />
+	<LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal">
+	     <TextView
+	        android:id="@+id/news"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="20dp"
+	        android:gravity="center_horizontal"
+	        android:textColor="@color/leafsWhite" />
+	     <Button
+	        android:id="@+id/newsOne"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@null"
+	        android:gravity="left"
+	        android:textColor="@color/leafsWhite" />
+	     <Button
+	        android:id="@+id/newsTwo"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@null"
+	        android:gravity="left"
+	        android:textColor="@color/leafsWhite" />
+	     <Button
+	        android:id="@+id/newsThree"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@null"
+	        android:gravity="left"
+	        android:textColor="@color/leafsWhite" />
 	</LinearLayout>"
 </LinearLayout>
 </ScrollView>

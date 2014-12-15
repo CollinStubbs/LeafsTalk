@@ -16,20 +16,25 @@ import org.w3c.dom.Document;
 
 import android.support.v7.app.ActionBarActivity;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity  {
 	LinearLayout ll, pic;
-	View v1,v2,v3,v4,v5,v6;
+	View v1,v2,v3,v4,v5,v6, v7, v8, v9;
 	
-	TextView pI, pA, oA, oAAns, lT,  lTAns, topPlay, topOne, topTwo, topThree;
+	TextView pI, pA, oA, oAAns, lT,  lTAns, topPlay, topOne, topTwo, topThree, news;
+	
+	Button newsOne,newsTwo,newsThree;
 	
 	boolean toggle = true;
 
@@ -46,6 +51,9 @@ public class MainActivity extends ActionBarActivity  {
 		v4=(View)findViewById(R.id.v4);
 		v5=(View)findViewById(R.id.v5);
 		v6=(View)findViewById(R.id.v6);
+		v7=(View)findViewById(R.id.v7);
+		v8=(View)findViewById(R.id.v8);
+		v9=(View)findViewById(R.id.v9);
 		
 		 pI =(TextView)findViewById(R.id.playoffIntro);
 		 pA =(TextView)findViewById(R.id.playoffAns);
@@ -59,7 +67,11 @@ public class MainActivity extends ActionBarActivity  {
 		 topTwo =(TextView)findViewById(R.id.topTwo);
 		 topThree =(TextView)findViewById(R.id.topThree);
 		
-		
+		 news =(TextView)findViewById(R.id.news);
+		 newsOne =(Button)findViewById(R.id.newsOne);
+		 newsTwo =(Button)findViewById(R.id.newsTwo);
+		 newsThree =(Button)findViewById(R.id.newsThree);
+		 
 		//IMPLEMENT KABEL FONT
 		
 	    Typeface kabe=Typeface.createFromAsset(getAssets(), "fonts/Kabel_Regular.ttf");
@@ -71,12 +83,15 @@ public class MainActivity extends ActionBarActivity  {
 	    GetPlayerInfo gPI = new GetPlayerInfo();
 	    gPI.execute();
 	    
+	    final GetNews gN = new GetNews();
+	    gN.execute();
+	    
 	    //Playoff Spot Answer
 	    pA.setTypeface(kabeBold);
 	    pA.setTextSize(40f);
 	    
 	    try {
-	    	while(gI.getRank() == 0 || gPI.getCheck() == 0){
+	    	while(gI.getRank() == 0 || gPI.getCheck() == 0 || gN.getCheck() == 0){
 	    		Thread.sleep(100);         
 	    	}
 	    } catch (InterruptedException e) {
@@ -134,6 +149,43 @@ public class MainActivity extends ActionBarActivity  {
 	    topThree.setTextSize(14f);
 	    topThree.setText(gPI.getThree());
 	    
+	    //news text
+	    news.setTypeface(kabe);
+	    news.setTextSize(24f);
+	    news.setText("News:");
+	    
+	    //NewsButtonOne
+	    newsOne.setTypeface(kabeBold);
+	    newsOne.setTextSize(14f);
+	    newsOne.setText(gN.getOneTitle());
+	    newsOne.setOnClickListener(new Button.OnClickListener() {
+	        public void onClick(View v) {
+	        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(gN.getOneLink()));
+	        	startActivity(browserIntent);
+		    }
+		});
+		    
+	  //NewsButtonTwo
+	    newsTwo.setTypeface(kabeBold);
+	    newsTwo.setTextSize(14f);
+	    newsTwo.setText(gN.getTwoTitle());
+	    newsTwo.setOnClickListener(new Button.OnClickListener() {
+	        public void onClick(View v) {
+	        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(gN.getTwoLink()));
+	        	startActivity(browserIntent);
+		    }
+		});
+	    
+	  //NewsButtonOne
+	    newsThree.setTypeface(kabeBold);
+	    newsThree.setTextSize(14f);
+	    newsThree.setText(gN.getThreeTitle());
+	    newsThree.setOnClickListener(new Button.OnClickListener() {
+	        public void onClick(View v) {
+	        	Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(gN.getThreeLink()));
+	        	startActivity(browserIntent);
+		    }
+		});
 	    //conference rank
 	    //division rank
 	    //how good is kessel
@@ -171,6 +223,9 @@ public class MainActivity extends ActionBarActivity  {
 			v4.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
 			v5.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
 			v6.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+			v7.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+			v8.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+			v9.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
 			
 			pI.setTextColor(getResources().getColor(R.color.leafsBlue));
 			 pA.setTextColor(getResources().getColor(R.color.leafsWhite));
@@ -184,6 +239,11 @@ public class MainActivity extends ActionBarActivity  {
 			 topTwo.setTextColor(getResources().getColor(R.color.leafsBlue));
 			 topThree.setTextColor(getResources().getColor(R.color.leafsBlue));
 			 
+			 news.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 newsOne.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 newsTwo.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 newsThree.setTextColor(getResources().getColor(R.color.leafsBlue));
+			 
 			 toggle = false;
 			}else{
 				ll.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
@@ -194,6 +254,9 @@ public class MainActivity extends ActionBarActivity  {
 				v4.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
 				v5.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
 				v6.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+				v7.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
+				v8.setBackgroundColor(getResources().getColor(R.color.leafsWhite));
+				v9.setBackgroundColor(getResources().getColor(R.color.leafsBlue));
 				
 				pI.setTextColor(getResources().getColor(R.color.leafsWhite));
 				 pA.setTextColor(getResources().getColor(R.color.leafsBlue));
@@ -206,6 +269,11 @@ public class MainActivity extends ActionBarActivity  {
 				 topOne.setTextColor(getResources().getColor(R.color.leafsWhite));
 				 topTwo.setTextColor(getResources().getColor(R.color.leafsWhite));
 				 topThree.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 
+				 news.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 newsOne.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 newsTwo.setTextColor(getResources().getColor(R.color.leafsWhite));
+				 newsThree.setTextColor(getResources().getColor(R.color.leafsWhite));
 				
 				 toggle = true;
 			}

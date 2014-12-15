@@ -250,7 +250,7 @@ int id action_context_bar 0x7f05001d
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f05004e
+int id action_settings 0x7f050055
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id beginning 0x7f050011
@@ -277,6 +277,10 @@ int id list_item 0x7f050029
 int id mainLay 0x7f05003c
 int id middle 0x7f050012
 int id never 0x7f050009
+int id news 0x7f050051
+int id newsOne 0x7f050052
+int id newsThree 0x7f050054
+int id newsTwo 0x7f050053
 int id none 0x7f050010
 int id normal 0x7f050000
 int id overall 0x7f050043
@@ -317,6 +321,9 @@ int id v3 0x7f050042
 int id v4 0x7f050047
 int id v5 0x7f050048
 int id v6 0x7f050049
+int id v7 0x7f05004e
+int id v8 0x7f05004f
+int id v9 0x7f050050
 int id withText 0x7f05000c
 int integer abc_max_action_buttons 0x7f090000
 int layout abc_action_bar_decor 0x7f030000
