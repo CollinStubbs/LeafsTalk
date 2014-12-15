@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class Comparisons extends ActionBarActivity {
 
-	TextView leafTitle, oppTitle; 
+	TextView leafTitle, oppTitle, leafGP, oppGP, leafW, oppW, leafL, oppL,leafOTL, oppOTL; 
 	GetComp gI;
 	ArrayList<String> opp;
 	@Override
@@ -30,6 +30,7 @@ public class Comparisons extends ActionBarActivity {
 		    } catch (InterruptedException e) {
 		       e.printStackTrace();
 		    }
+		  
 		  ArrayList<String> tor = gI.getStats("Toronto");
 		  opp = gI.getStats("Ottawa");
 		  
@@ -38,14 +39,56 @@ public class Comparisons extends ActionBarActivity {
 		
 		 leafTitle =(TextView)findViewById(R.id.leafsTitle);
 		 oppTitle =(TextView)findViewById(R.id.oppTitle);
+		 
+		 leafGP =(TextView)findViewById(R.id.leafsGP);
+		 oppGP =(TextView)findViewById(R.id.oppGP);
+		 
+		 leafW =(TextView)findViewById(R.id.leafsW);
+		 oppW =(TextView)findViewById(R.id.oppW);
 		
+		 leafL =(TextView)findViewById(R.id.leafsL);
+		 oppL =(TextView)findViewById(R.id.oppL);
+		 
+		 leafOTL =(TextView)findViewById(R.id.leafsOTL);
+		 oppOTL =(TextView)findViewById(R.id.oppOTL);
+		 
 		 leafTitle.setTypeface(kabeBold);
 		 leafTitle.setTextSize(24f);
 		 leafTitle.setText(tor.get(0));
 		 
 		 oppTitle.setTypeface(kabeBold);
 		 oppTitle.setTextSize(24f);
-		 oppTitle.setText(opp.get(0));
+		 
+		 
+		 leafGP.setTypeface(kabeBold);
+		 leafGP.setTextSize(24f);
+		 leafGP.setText(tor.get(1));
+		 
+		 oppGP.setTypeface(kabeBold);
+		 oppGP.setTextSize(24f);
+		 
+		 leafW.setTypeface(kabeBold);
+		 leafW.setTextSize(24f);
+		 leafW.setText(tor.get(2));
+		 
+		 oppW.setTypeface(kabeBold);
+		 oppW.setTextSize(24f);
+		 
+		 leafL.setTypeface(kabeBold);
+		 leafL.setTextSize(24f);
+		 leafL.setText(tor.get(3));
+		 
+		 oppL.setTypeface(kabeBold);
+		 oppL.setTextSize(24f);
+		 
+		 leafOTL.setTypeface(kabeBold);
+		 leafOTL.setTextSize(24f);
+		 leafOTL.setText(tor.get(4));
+		 
+		 oppOTL.setTypeface(kabeBold);
+		 oppOTL.setTextSize(24f);
+		 
+		 setOpposition();
 		 
 		
 	}
@@ -102,5 +145,9 @@ public class Comparisons extends ActionBarActivity {
 	}
 	public void setOpposition(){
 		oppTitle.setText(opp.get(0));
+		oppGP.setText(opp.get(1));
+		oppW.setText(opp.get(2));
+		oppL.setText(opp.get(3));
+		oppOTL.setText(opp.get(4));
 	}
 }
