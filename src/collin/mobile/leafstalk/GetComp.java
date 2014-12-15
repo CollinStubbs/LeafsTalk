@@ -70,6 +70,7 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
 	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
+	    				tor.add("Toronto");
 	    				tor.add(stats1.getAttribute("Stat0"));
 	    				tor.add(stats1.getAttribute("Stat1"));	    				
 	    				tor.add(stats1.getAttribute("Stat2"));
@@ -86,6 +87,7 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
 	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
+	    				bos.add("Boston");
 	    				bos.add(stats1.getAttribute("Stat0"));
 	    				bos.add(stats1.getAttribute("Stat1"));	    				
 	    				bos.add(stats1.getAttribute("Stat2"));
@@ -102,6 +104,7 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
 	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
+	    				buf.add("Buffalo");
 	    				buf.add(stats1.getAttribute("Stat0"));
 	    				buf.add(stats1.getAttribute("Stat1"));	    				
 	    				buf.add(stats1.getAttribute("Stat2"));
@@ -118,6 +121,7 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
 	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
+	    				det.add("Detroit");
 	    				det.add(stats1.getAttribute("Stat0"));
 	    				det.add(stats1.getAttribute("Stat1"));	    				
 	    				det.add(stats1.getAttribute("Stat2"));
@@ -134,6 +138,7 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
 	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
+	    				flo.add("Florida");
 	    				flo.add(stats1.getAttribute("Stat0"));
 	    				flo.add(stats1.getAttribute("Stat1"));	    				
 	    				flo.add(stats1.getAttribute("Stat2"));
@@ -150,6 +155,7 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
 	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
+	    				mon.add("Montreal");
 	    				mon.add(stats1.getAttribute("Stat0"));
 	    				mon.add(stats1.getAttribute("Stat1"));	    				
 	    				mon.add(stats1.getAttribute("Stat2"));
@@ -166,6 +172,7 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
 	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
+	    				ott.add("Ottawa");
 	    				ott.add(stats1.getAttribute("Stat0"));
 	    				ott.add(stats1.getAttribute("Stat1"));	    				
 	    				ott.add(stats1.getAttribute("Stat2"));
@@ -182,6 +189,7 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 	    				Element stats1 = (Element) eElement.getElementsByTagName("StatsGroup").item(0);
 	    				Element stats2 = (Element) eElement.getElementsByTagName("StatsGroup").item(1);
 	    				
+	    				tam.add("Tampa");
 	    				tam.add(stats1.getAttribute("Stat0"));
 	    				tam.add(stats1.getAttribute("Stat1"));	    				
 	    				tam.add(stats1.getAttribute("Stat2"));
@@ -205,9 +213,28 @@ public class GetComp extends AsyncTask<Void, Void, Void> {
 		return null;
 	}
 	public int getCheck(){
-		
-		
 		return checker;
+	}
+	public ArrayList<String> getStats(String name){
+		if(name.equals(tor.get(0))){
+			return tor;
+		}else if(name.equals(bos.get(0))){
+			return bos;
+		}else if(name.equals(buf.get(0))){
+			return buf;
+		}else if(name.equals(det.get(0))){
+			return det;
+		}else if(name.equals(flo.get(0))){
+			return flo;
+		}else if(name.equals(mon.get(0))){
+			return mon;
+		}else if(name.equals(ott.get(0))){
+			return ott;
+		}else if(name.equals(tam.get(0))){
+			return tam;
+		}else{
+			return null;
+		}
 	}
 	
 }

@@ -25,8 +25,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/leafsTitle"
             android:layout_weight="1"
-            android:textColor="@color/leafsWhite"
-            android:text="TOR"/>
+            android:textColor="@color/leafsWhite"/>
          <TextView
              android:gravity="center_horizontal"
             android:layout_width="fill_parent"
