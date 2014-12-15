@@ -101,7 +101,7 @@
             android:textColor="@color/leafsWhite"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="8dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -122,5 +122,70 @@
             android:layout_weight="1"
             android:textColor="@color/leafsWhite"/>
     </LinearLayout>
-    
+    <LinearLayout
+        android:layout_marginTop="9dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_marginRight="40dp"
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/leafsGF"
+            android:layout_weight="1"
+            android:textColor="@color/leafsWhite"/>
+         <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/oppGF"
+            android:layout_weight="1"
+            android:textColor="@color/leafsWhite"/>
+    </LinearLayout>
+     <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_marginRight="40dp"
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/leafsGA"
+            android:layout_weight="1"
+            android:textColor="@color/leafsWhite"/>
+         <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/oppGA"
+            android:layout_weight="1"
+            android:textColor="@color/leafsWhite"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_marginRight="40dp"
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/leafsSTK"
+            android:layout_weight="1"
+            android:textColor="@color/leafsWhite"/>
+         <TextView
+            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/oppSTK"
+            android:layout_weight="1"
+            android:textColor="@color/leafsWhite"/>
+    </LinearLayout>
 </LinearLayout>
