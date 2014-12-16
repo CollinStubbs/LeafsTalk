@@ -16,11 +16,18 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-<style name="MyCustomTheme" parent="style/Theme.AppCompat.Light.DarkActionBar">
-    <item name="android:actionOverflowButtonStyle">@style/MyCustomTheme.OverFlow</item>
-</style>
-
-<style name="MyCustomTheme.OverFlow">
-    <item name="android:src">@drawable/overflow</item>
-</style>
+	<style name="MyCustomTheme" parent="style/Theme.AppCompat.Light.DarkActionBar">
+	    <item name="android:actionOverflowButtonStyle">@style/MyCustomTheme.OverFlow</item>
+	</style>
+	
+	<style name="MyCustomTheme.OverFlow">
+	    <item name="android:src">@drawable/overflow</item>
+	</style>
+	<style name="MyCustomThemeMain" parent="style/Theme.AppCompat.Light.DarkActionBar">
+	    <item name="android:actionOverflowButtonStyle">@style/MyCustomThemeMain.OverFlow</item>
+	</style>
+	
+	<style name="MyCustomThemeMain.OverFlow">
+	    <item name="android:src">@drawable/overflow_main</item>
+	</style>
 </resources>

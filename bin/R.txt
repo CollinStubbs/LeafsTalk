@@ -240,7 +240,8 @@ int drawable ic_launcher 0x7f020057
 int drawable leaf 0x7f020058
 int drawable leafblue 0x7f020059
 int drawable overflow 0x7f02005a
-int drawable table 0x7f02005b
+int drawable overflow_main 0x7f02005b
+int drawable table 0x7f02005c
 int id action_bar 0x7f05001c
 int id action_bar_activity_content 0x7f050015
 int id action_bar_container 0x7f05001b
@@ -406,6 +407,8 @@ int style AppBaseTheme 0x7f0b008b
 int style AppTheme 0x7f0b008c
 int style MyCustomTheme 0x7f0b008d
 int style MyCustomTheme_OverFlow 0x7f0b008e
+int style MyCustomThemeMain 0x7f0b008f
+int style MyCustomThemeMain_OverFlow 0x7f0b0090
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0063
 int style TextAppearance_AppCompat_Base_SearchResult 0x7f0b006d
 int style TextAppearance_AppCompat_Base_SearchResult_Subtitle 0x7f0b006f
