@@ -22,6 +22,7 @@ public class Comparisons extends ActionBarActivity {
 	
 	GetComp gI; //need to use globally
 	ArrayList<String> opp;//globally as well
+	ArrayList<String> tor;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class Comparisons extends ActionBarActivity {
 	    }
 		  
 		//set the arraylists for tor and opposition
-		 ArrayList<String> tor = gI.getStats("Toronto");
+		 tor = gI.getStats("Toronto");
 		 opp = gI.getStats("Ottawa");
 		 
 		 //set custom typefaces
@@ -157,9 +158,11 @@ public class Comparisons extends ActionBarActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+		setWhite();//to set white before every comparison
 		//for whatever team is selected, set the data to correspond
 		if (id == R.id.boston) {
 			opp = gI.getStats("Boston");
+			
 			setOpposition();
 			return true;
 		}
@@ -195,16 +198,106 @@ public class Comparisons extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	//sets the views to show the selected teams data
+	//sets the data back to white text
+	public void setWhite(){
+		
+		leafGP.setTextColor(getResources().getColor(R.color.leafsWhite));
+		leafW.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		leafL.setTextColor(getResources().getColor(R.color.leafsWhite));
+		leafOTL.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		leafPTS.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		leafGF.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		leafGA.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		oppGP.setTextColor(getResources().getColor(R.color.leafsWhite));
+		oppW.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		oppL.setTextColor(getResources().getColor(R.color.leafsWhite));
+		oppOTL.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		oppPTS.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		oppGF.setTextColor(getResources().getColor(R.color.leafsWhite));	
+		oppGA.setTextColor(getResources().getColor(R.color.leafsWhite));	
+	}
+	//sets the views to show the selected teams data and indicates which is larger
+	//**note: if opp and tor data are equal, tor will be higlighted due to home team advantage
 	public void setOpposition(){
+		
 		oppTitle.setText(opp.get(0));
+		
 		oppGP.setText(opp.get(1));
+		if(Integer.parseInt(opp.get(1))>Integer.parseInt(tor.get(1))){
+			oppGP.setTextColor(getResources().getColor(R.color.larger));
+		}else{
+			leafGP.setTextColor(getResources().getColor(R.color.larger));
+		}
+		
 		oppW.setText(opp.get(2));
+		if(Integer.parseInt(opp.get(2))>Integer.parseInt(tor.get(2))){
+			oppW.setTextColor(getResources().getColor(R.color.larger));
+		}else{
+			leafW.setTextColor(getResources().getColor(R.color.larger));
+		}
+		
 		oppL.setText(opp.get(3));
+		if(Integer.parseInt(opp.get(3))>Integer.parseInt(tor.get(3))){
+			oppL.setTextColor(getResources().getColor(R.color.larger));
+		}else{
+			leafL.setTextColor(getResources().getColor(R.color.larger));
+		}
+		
 		oppOTL.setText(opp.get(4));
+		if(Integer.parseInt(opp.get(4))>Integer.parseInt(tor.get(4))){
+			oppOTL.setTextColor(getResources().getColor(R.color.larger));
+		}else{
+			leafOTL.setTextColor(getResources().getColor(R.color.larger));
+		}
+		
 		oppPTS.setText(opp.get(5));
+		if(Integer.parseInt(opp.get(5))>Integer.parseInt(tor.get(5))){
+			oppPTS.setTextColor(getResources().getColor(R.color.larger));
+		}else{
+			leafPTS.setTextColor(getResources().getColor(R.color.larger));
+		}
+		
 		oppGF.setText(opp.get(6));
+		if(Integer.parseInt(opp.get(6))>Integer.parseInt(tor.get(6))){
+			oppGF.setTextColor(getResources().getColor(R.color.larger));
+		}else{
+			leafGF.setTextColor(getResources().getColor(R.color.larger));
+		}
+		
 		oppGA.setText(opp.get(7));
+		if(Integer.parseInt(opp.get(7))>Integer.parseInt(tor.get(7))){
+			oppGA.setTextColor(getResources().getColor(R.color.larger));
+		}else{
+			leafGA.setTextColor(getResources().getColor(R.color.larger));
+		}
+		
 		oppSTK.setText(opp.get(8));
+		
+		if(tor.get(8).charAt(0) == 'W'){
+			//if both on win streak
+			if(opp.get(8).charAt(0) == 'W'){
+				//if torontos win streak is better
+				if((int)tor.get(8).charAt(1) >= (int)opp.get(8).charAt(1)){
+					leafSTK.setTextColor(getResources().getColor(R.color.larger));
+				}else{
+					oppSTK.setTextColor(getResources().getColor(R.color.larger));
+				}
+			}else{
+				leafSTK.setTextColor(getResources().getColor(R.color.larger));
+			}
+		}else{
+			//if both on loss streak
+			if(opp.get(8).charAt(0) == 'L'){
+				//if toronto's loss streak is less
+				if((int)tor.get(8).charAt(1) < (int)opp.get(8).charAt(1)){
+					leafSTK.setTextColor(getResources().getColor(R.color.larger));
+				}else{
+					oppSTK.setTextColor(getResources().getColor(R.color.larger));
+				}
+			}else{
+				oppSTK.setTextColor(getResources().getColor(R.color.larger));
+			}
+		}
+		
 	}
 }
